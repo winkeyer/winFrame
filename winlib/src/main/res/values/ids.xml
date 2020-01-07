@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="toolbar" type="id" />
+    <item name="tv_toolbar_title" type="id" />
+    <item name="x5_web_view" type="id" />
+    <item name="colorPrimary" type="color" />
+    <item name="colorPrimaryDark" type="color" />
+    <item name="colorAccent" type="color" />
+</resources>

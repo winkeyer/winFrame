@@ -1,0 +1,33 @@
+ext {
+    android = [
+            compileSdkVersion: 29,
+            buildToolsVersion: "29.0.2",
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    dependVersion = [
+            appcompat       : "1.1.0",
+            constraintlayout: "1.1.3",
+            junit           : "4.12",
+            testRunter      : "1.2.0",
+            espresso        : "3.2.0",
+            eventBus        : "3.1.1",
+            butterknife     : "10.2.1",
+            immersionbar :"2.3.2",
+    ]
+
+    dependencies = [
+            appcompat          : "androidx.appcompat:appcompat:${dependVersion.appcompat}",
+            constraintlayout   : "androidx.constraintlayout:constraintlayout:${dependVersion.constraintlayout}",
+            junit              : "junit:junit:${dependVersion.junit}",
+            testRunter         : "androidx.test:runner:${dependVersion.testRunter}",
+            espresso           : "androidx.test.espresso:espresso-core:${dependVersion.espresso}",
+            eventBus           : "org.greenrobot:eventbus:${dependVersion.eventBus}",
+            butterknife        : "com.jakewharton:butterknife:${dependVersion.butterknife}",
+            butterknifeCompiler: "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
+            immersionbar: "com.gyf.immersionbar:immersionbar:${dependVersion.immersionbar}",
+    ]
+}
