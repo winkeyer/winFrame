@@ -1,6 +1,7 @@
 package com.winkey.winlib.activity;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -15,6 +16,10 @@ import androidx.appcompat.widget.Toolbar;
 import com.gyf.barlibrary.ImmersionBar;
 import com.winkey.winlib.R;
 import com.winkey.winlib.event.EventManage;
+import com.winkey.winlib.presenter.BasePresenter;
+import com.winkey.winlib.rx.RxApiManager;
+import com.winkey.winlib.ui.loader.XzLoader;
+import com.winkey.winlib.view.BaseView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -27,14 +32,13 @@ import butterknife.Unbinder;
  * Activity基类
  * Created by xiongz on 2017/12/9.
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity implements BaseView {
 
     //是否注册EventBus
     protected boolean mIsRegisterBus;
     //是否全屏
     protected boolean mIsFullScreen;
-    //ButterKnife绑定
-    private Unbinder mUnbinder = null;
+    protected T mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,7 +67,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         } else {
             throw new ClassCastException("type of getContentView() must be int or View!");
         }
-        mUnbinder = ButterKnife.bind(this);
+        initViews();
+        parseData();
     }
 
     /**
@@ -72,6 +77,17 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @return
      */
     protected abstract Object getContentView();
+
+    /**
+     * view相关
+     */
+    protected abstract void initViews();
+
+
+    /**
+     * 数据相关
+     */
+    protected abstract void parseData();
 
     @Override
     protected void onDestroy() {
@@ -83,17 +99,32 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (mIsRegisterBus) {
             EventBus.getDefault().unregister(this);
         }
-        //解绑
-        if (mUnbinder != null) {
-            mUnbinder.unbind();
-        }
         //清除当前页面的网络请求
-        /*RxApiManager rxApiManager = RxApiManager.getInstance();
+        RxApiManager rxApiManager = RxApiManager.getInstance();
         if (rxApiManager != null) {
             rxApiManager.cancel(this);
-        }*/
-
+        }
+        if (mPresenter != null) {
+            mPresenter.unregister();
+        }
+        XzLoader.dismissDialog();
         super.onDestroy();
+    }
+
+    @Override
+    public void showLoading() {
+        XzLoader.showLoading(this);
+    }
+
+    @Override
+    public void hideLoading() {
+        XzLoader.dismissOneDialog();
+    }
+
+
+    @Override
+    public void onError(Throwable throwable) {
+
     }
 
     /**

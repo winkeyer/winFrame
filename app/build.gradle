@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+apply from: 'tinker-support.gradle'
 
 android {
     compileSdkVersion rootProject.ext.android['compileSdkVersion']
@@ -10,11 +12,41 @@ android {
         versionCode rootProject.ext.android['versionCode']
         versionName rootProject.ext.android['versionName']
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
+
+    greendao {
+        schemaVersion 1 // 数据库版本号
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('yiti.jks')
+            storePassword 'jzjtxxzx'
+            keyAlias 'yitiApp'
+            keyPassword 'jzjtxxzx'
+        }
+        sign {
+            storeFile file('yiti.jks')
+            storePassword 'jzjtxxzx'
+            keyAlias 'yitiApp'
+            keyPassword 'jzjtxxzx'
+        }
+    }
+
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        buildTypes {
+            debug {
+                buildConfigField "boolean", "isDebug", "true"
+                signingConfig signingConfigs.debug
+                applicationIdSuffix '.debug'
+            }
+            release {
+                minifyEnabled false
+                buildConfigField "boolean", "isDebug", "false"
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                signingConfig signingConfigs.sign
+            }
         }
     }
 }
@@ -26,5 +58,15 @@ dependencies {
     testImplementation rootProject.ext.dependencies['junit']
     androidTestImplementation rootProject.ext.dependencies['testRunter']
     androidTestImplementation rootProject.ext.dependencies['espresso']
+
+    api 'com.android.support:multidex:1.0.3'
+    // Bugly异常上报、应用升级、热更新
+    api 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    api 'com.tencent.tinker:tinker-android-lib:1.9.9'
+    api 'com.tencent.bugly:nativecrashreport:latest.release'
+
+    // 数据库依赖
+    api 'org.greenrobot:greendao-generator:3.2.2'
+    api 'org.greenrobot:greendao:3.2.2'
     implementation project(path: ':winlib')
 }

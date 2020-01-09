@@ -1,9 +1,9 @@
-package com.winkey.winFrame.event;
+package com.winkey.common.constant;
 
 /**
  * @author winkey
- * @date 2020/1/7
- * @describe 总线事件常量
+ * @date 2020/1/9
+ * @describe 事件
  */
 public class Event {
     // LOGIN 事件
