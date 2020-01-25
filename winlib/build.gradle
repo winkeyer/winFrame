@@ -2,10 +2,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
+
+    // Butterknife requires Java 8.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     compileSdkVersion rootProject.ext.android['compileSdkVersion']
     buildToolsVersion rootProject.ext.android['buildToolsVersion']
-
-
     defaultConfig {
         minSdkVersion rootProject.ext.android['minSdkVersion']
         targetSdkVersion rootProject.ext.android['targetSdkVersion']
@@ -35,6 +39,7 @@ dependencies {
     //EventBus
     api rootProject.ext.dependencies['eventBus']
     //ButterKnife依赖
+
     api rootProject.ext.dependencies['butterknife']
     annotationProcessor rootProject.ext.dependencies['butterknifeCompiler']
 

@@ -40,6 +40,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     protected boolean mIsFullScreen;
     protected T mPresenter;
 
+    //ButterKnife绑定
+    private Unbinder mUnbinder = null;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         } else {
             throw new ClassCastException("type of getContentView() must be int or View!");
         }
+        mUnbinder = ButterKnife.bind(this);
         initViews();
         parseData();
     }
@@ -98,6 +101,10 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         //销毁EventBus
         if (mIsRegisterBus) {
             EventBus.getDefault().unregister(this);
+        }
+        //解绑
+        if (mUnbinder != null) {
+            mUnbinder.unbind();
         }
         //清除当前页面的网络请求
         RxApiManager rxApiManager = RxApiManager.getInstance();
@@ -134,7 +141,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         Toolbar toolbar = activity.findViewById(R.id.toolbar);
         TextView tvTitle = activity.findViewById(R.id.tv_toolbar_title);
         tvTitle.setText(title);
-        toolbar.setNavigationIcon(R.drawable.ic_back_white);
+        toolbar.setNavigationIcon(R.mipmap.ic_back_white);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

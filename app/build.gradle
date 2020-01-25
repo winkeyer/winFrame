@@ -3,6 +3,12 @@ apply plugin: 'org.greenrobot.greendao'
 apply from: 'tinker-support.gradle'
 
 android {
+
+    // Butterknife requires Java 8.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     compileSdkVersion rootProject.ext.android['compileSdkVersion']
     buildToolsVersion rootProject.ext.android['buildToolsVersion']
     defaultConfig {
@@ -64,7 +70,7 @@ dependencies {
     api 'com.tencent.bugly:crashreport_upgrade:latest.release'
     api 'com.tencent.tinker:tinker-android-lib:1.9.9'
     api 'com.tencent.bugly:nativecrashreport:latest.release'
-
+    annotationProcessor "com.jakewharton:butterknife-compiler:10.2.1"
     // 数据库依赖
     api 'org.greenrobot:greendao-generator:3.2.2'
     api 'org.greenrobot:greendao:3.2.2'
