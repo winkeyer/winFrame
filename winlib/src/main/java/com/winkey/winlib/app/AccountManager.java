@@ -21,7 +21,7 @@ public class AccountManager {
      * 是否登录
      * @return
      */
-    private static boolean isLogin() {
+    public static boolean isLogin() {
         return SPUtils.getInstance().getBoolean(LOGIN_TAG);
     }
 

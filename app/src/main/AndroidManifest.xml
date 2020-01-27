@@ -41,7 +41,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
-        android:name=".application.YitiApp"
+        android:name="com.winkey.commonlib.application.WinApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -56,8 +56,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".router.SchemeFilterActivity">
+            <!-- Scheme -->
+            <intent-filter>
+                <data
+                    android:host="win.frame.com"
+                    android:scheme="arouter"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".login.view.LoginActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".main.view.MainActivity"
             android:screenOrientation="portrait" />
     </application>
 

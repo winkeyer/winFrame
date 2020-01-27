@@ -28,6 +28,6 @@ public interface LoginContract {
     }
 
     interface Presenter {
-        void login(HashMap<String,Object> requestMap);
+        void login(HashMap<String, Object> requestMap);
     }
 }

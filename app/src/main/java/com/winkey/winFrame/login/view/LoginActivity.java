@@ -10,12 +10,15 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.winkey.commonlib.constant.Const;
+import com.winkey.commonlib.constant.Router;
 import com.winkey.winFrame.BuildConfig;
 import com.winkey.winFrame.R;
-import com.winkey.winFrame.common.constant.Const;
 import com.winkey.winFrame.login.contract.LoginContract;
 import com.winkey.winFrame.login.presenter.LoginPresenter;
 import com.winkey.winlib.activity.BaseActivity;
@@ -27,7 +30,6 @@ import java.util.HashMap;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.winkey.winFrame.common.constant.Const.NET_ROUTE_INDEX;
 
 /**
  * 登录页面
@@ -35,6 +37,7 @@ import static com.winkey.winFrame.common.constant.Const.NET_ROUTE_INDEX;
  * @author xiongz
  * @date 2019-07-18
  */
+@Route(path = Router.LOGIN_MOUDLE_ACTIVITY)
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
 
     @BindView(R.id.tv_route_select)
@@ -55,6 +58,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        mIsFullScreen = true;
+        super.onCreate(savedInstanceState);
+        ActivityUtils.finishOtherActivities(LoginActivity.class);
+    }
+
+    @Override
     protected void initViews() {
         mPresenter = new LoginPresenter(this);
         mPresenter.register(this);
@@ -64,19 +74,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     protected void parseData() {
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        mIsFullScreen = true;
-        super.onCreate(savedInstanceState);
-
-        ActivityUtils.finishOtherActivities(LoginActivity.class);
-    }
 
     @Override
     public void onResume() {
         super.onResume();
         tvNetRoute.setText("自定义");
-        int curNetIndex = SPUtils.getInstance().getInt(NET_ROUTE_INDEX, 0);
+        int curNetIndex = SPUtils.getInstance().getInt(Const.NET_ROUTE_INDEX, 0);
         if (BuildConfig.DEBUG) {
             tvNetRoute.setVisibility(View.VISIBLE);
             if (curNetIndex == 10000) {
@@ -93,9 +96,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void onLoginSuccess() {
-        ToastUtils.showLong("登录成功");
-        // 登录成功
-        // ActivityUtils.startActivity(MainActivity.class);
+        ARouter.getInstance().build(Router.MAIN_MOUDLE_ACTIVITY).navigation();
     }
 
     @OnClick({R.id.btn_login_login, R.id.tv_login_pwd_switch, R.id.tv_route_select})

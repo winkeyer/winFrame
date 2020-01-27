@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_login">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp15"
+        android:paddingTop="@dimen/dp20"
+        android:paddingRight="@dimen/dp15">
+
+        <ImageView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp100"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp90"
+            android:src="@mipmap/ic_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="亿梯保"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp22"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp60"
+            android:background="@drawable/bg_login_input"
+            android:orientation="vertical">
+
+            <com.winkey.winlib.ui.view.ClearEditText
+                android:id="@+id/cet_login_username"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp45"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp40"
+                android:layout_marginRight="@dimen/dp20"
+                android:background="@color/white"
+                android:gravity="left|center_vertical"
+                android:hint="请输入账号"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp40"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/sp14" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp0_5" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp45"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp20"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.winkey.winlib.ui.view.ClearEditText
+                    android:id="@+id/cet_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_login_password"
+                    android:gravity="left|center_vertical"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:paddingLeft="@dimen/dp10"
+                    android:paddingRight="@dimen/dp40"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/sp14" />
+
+                <ImageView
+                    android:id="@+id/tv_login_pwd_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/dp5"
+                    android:paddingRight="@dimen/dp5"
+                    android:src="@mipmap/ic_hidden_psd" />
+            </RelativeLayout>
+
+            <Button
+
+                android:id="@+id/btn_login_login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp30"
+                android:layout_marginRight="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:background="@drawable/bg_login_button"
+                android:gravity="center"
+                android:text="登        录"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp14"
+                android:theme="@style/appThemeButton" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_route_select"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
+        android:layout_margin="@dimen/dp30"
+        android:gravity="center"
+        android:background="@color/gray"
+        android:elevation="@dimen/dp20"
+        android:text="测试"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp12"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

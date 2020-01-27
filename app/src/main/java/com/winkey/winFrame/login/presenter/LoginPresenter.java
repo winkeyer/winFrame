@@ -5,15 +5,16 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.blankj.utilcode.util.ToastUtils;
-import com.winkey.winFrame.common.db.PermissionsEntity;
-import com.winkey.winFrame.common.db.ProfileManager;
-import com.winkey.winFrame.common.db.UserProfile;
-import com.winkey.winFrame.common.net.ConstUrl;
-import com.winkey.winFrame.common.net.NetManager;
-import com.winkey.winFrame.common.net.ObserverProxy;
+import com.winkey.commonlib.db.ProfileManager;
+import com.winkey.commonlib.db.SysParamManager;
+import com.winkey.commonlib.model.po.UserProfile;
+import com.winkey.commonlib.model.vo.PermissionsEntity;
+import com.winkey.commonlib.constant.ConstUrl;
+import com.winkey.commonlib.net.NetManager;
+import com.winkey.commonlib.net.ObserverProxy;
 import com.winkey.winFrame.login.contract.LoginContract;
-import com.winkey.winFrame.login.model.vo.UserInfoEntity;
 import com.winkey.winFrame.login.model.vo.LoginEntity;
+import com.winkey.winFrame.login.model.vo.UserInfoEntity;
 import com.winkey.winlib.app.AccountManager;
 import com.winkey.winlib.presenter.BasePresenter;
 import com.winkey.winlib.rx.RxNetClient;
@@ -60,7 +61,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                 .postParams()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new ObserverProxy(mContext, url, body, new Observer<String>() {
+                .subscribe( new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
@@ -72,11 +73,11 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
 
                     @Override
                     public void onError(Throwable e) {
+                        mView.onError(e);
                         if (e instanceof SocketTimeoutException) {
                             ToastUtils.showLong("网络超时,请稍后再试!" + e.getMessage());
                         } else if (e instanceof ConnectException) {
                             // ActivityUtils.startActivity(NetErrorActivity.class);
-                            mView.onError(e);
                         }
                         if (e instanceof HttpException) {
                             try {
@@ -109,7 +110,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                     public void onComplete() {
                         mView.hideLoading();
                     }
-                }));
+                });
     }
 
     /**
@@ -187,8 +188,16 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                     && !TextUtils.equals(oldUserProfile.getToken(), userProfile.getToken()))) {
                 ProfileManager.insertUserProfile(userProfile, password);
             }
+            // 获取系统参数
+            SysParamManager.getInstance().setOnCompleteRequest(new SysParamManager.OnCompleteRequest() {
+                @Override
+                public void onComplete() {
+                    mView.hideLoading();
+                    AccountManager.setLoginState(true);
+                    mView.onLoginSuccess();
+                }
+            }).getSysParams(mContext);
             AccountManager.setLoginState(true);
-            mView.onLoginSuccess();
         } else {
             ToastUtils.showLong("获取用户信息失败");
         }

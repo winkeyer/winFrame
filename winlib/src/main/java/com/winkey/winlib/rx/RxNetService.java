@@ -7,6 +7,7 @@ import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
+import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.FieldMap;
@@ -62,4 +63,11 @@ public interface RxNetService {
     @Multipart
     @POST
     Observable<String> postMultipart(@HeaderMap HashMap<String, Object> headers, @Url String url, @PartMap Map<String, RequestBody> params);
+
+    // 同步调用方法
+    @FormUrlEncoded
+    @POST // post + url参数 + header 同步方法
+    Call<String> callMethod(@HeaderMap HashMap<String, Object> headers, @Url String url, @FieldMap HashMap<String, Object> params);
+
+
 }

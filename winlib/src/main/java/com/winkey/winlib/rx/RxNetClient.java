@@ -11,6 +11,7 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 
 import static com.winkey.winlib.rx.HttpMethod.GET;
@@ -119,6 +120,16 @@ public class RxNetClient {
             }
             return request(POST_RAW);
         }
+    }
+
+    /**
+     * 同步方法调用
+     * @return
+     */
+    public Call callMethod(){
+        Retrofit retrofit = RetrofitManager.getInstance().createRetrofit();
+        RxNetService service = retrofit.create(RxNetService.class);
+        return service.callMethod(HEADERS, URL,PARAMS);
     }
 
     // url参数 post请求

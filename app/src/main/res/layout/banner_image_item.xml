@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.itheima.roundedimageview.RoundedImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:riv_border_color="@color/white"
+            app:riv_border_width="@dimen/dp0"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp30"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_shape_trans"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp10"
+            android:paddingEnd="@dimen/dp10"
+            android:singleLine="true"
+            android:text="dkssdljsd"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp12" />
+    </RelativeLayout>
+</LinearLayout>

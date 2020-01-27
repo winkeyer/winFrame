@@ -13,6 +13,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.gyf.barlibrary.ImmersionBar;
 import com.winkey.winlib.R;
 import com.winkey.winlib.event.EventManage;
@@ -29,8 +30,9 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * Activity基类
- * Created by xiongz on 2017/12/9.
+ * @author winkey
+ * @date 2020/1/7
+ * @describe Activity基类
  */
 public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity implements BaseView {
 
@@ -45,7 +47,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ARouter.getInstance().inject(this);
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
@@ -131,7 +133,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     @Override
     public void onError(Throwable throwable) {
-
+        XzLoader.dismissDialog();
     }
 
     /**

@@ -5,7 +5,7 @@ import com.winkey.winlib.view.BaseView;
 /**
  * @author winkey
  * @date 2020/1/8
- * @describe 基础Presenter
+ * @describe Presenter基类
  */
 public abstract class BasePresenter<V extends BaseView> {
 

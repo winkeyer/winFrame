@@ -6,27 +6,42 @@ import android.os.Message;
 
 import androidx.annotation.Nullable;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ActivityUtils;
+import com.winkey.commonlib.constant.Launcher;
+import com.winkey.commonlib.constant.Router;
+import com.winkey.commonlib.db.ProfileManager;
+import com.winkey.commonlib.model.po.UserProfile;
+import com.winkey.commonlib.router.UserService;
 import com.winkey.winFrame.R;
+import com.winkey.winFrame.login.contract.LoginContract;
+import com.winkey.winFrame.login.presenter.LoginPresenter;
 import com.winkey.winlib.activity.BaseActivity;
 import com.winkey.winlib.app.AccountManager;
 import com.winkey.winlib.app.IUserChecker;
+import com.winkey.winlib.util.Base64Util;
 
-import static com.winkey.winFrame.common.constant.Launcher.LOGIN;
-import static com.winkey.winFrame.common.constant.Launcher.MAIN;
+import java.util.HashMap;
+
 
 /**
  * @author winkey
  * @date 2020/1/9
  * @describe 欢迎页
  */
-public class LauncherActivity extends BaseActivity {
+@Route(path = Router.LAUNCHER_MOUDLE_ACTIVITY)
+public class LauncherActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
 
     //启动页显示时间默认三秒
     private static final int LAUNCHER_SHOW_TIMES = 2000;
 
     //启动时间
     private long mLauncherTime;
+
+    @Autowired(name = "/userService/userInfo")
+    UserService userService;
 
     @Override
     protected Object getContentView() {
@@ -51,14 +66,16 @@ public class LauncherActivity extends BaseActivity {
         AccountManager.checkAccount(new IUserChecker() {
             @Override
             public void onLogin() {
-                setDelayTimes(MAIN, mLauncherTime);
+                setDelayTimes(Launcher.MAIN, mLauncherTime);
             }
 
             @Override
             public void onNotLogin() {
-                setDelayTimes(LOGIN, mLauncherTime);
+                setDelayTimes(Launcher.LOGIN, mLauncherTime);
             }
         });
+        mPresenter = new LoginPresenter(this);
+        mPresenter.register(this);
     }
 
     @Override
@@ -86,29 +103,33 @@ public class LauncherActivity extends BaseActivity {
         }
     }
 
+
+    @Override
+    public void onLoginSuccess() {
+        ARouter.getInstance().build(Router.MAIN_MOUDLE_ACTIVITY).navigation();
+    }
+
+
     /**
      * 跳转到不同的Activity
      */
     private void toActivity(int tag) {
         switch (tag) {
             //登录
-            case LOGIN:
-                    ActivityUtils.startActivity(LoginActivity.class);
+            case Launcher.LOGIN:
+                ARouter.getInstance().build(Router.LOGIN_MOUDLE_ACTIVITY).navigation();
                 break;
             //主页面
-            case MAIN:
-                /*UserProfile userProfile = ProfileManager.getCurUserProfile();
+            case Launcher.MAIN:
+                UserProfile userProfile = ProfileManager.getCurUserProfile();
                 if (userProfile != null) { // 更新token
-                    HashMap<String, Object> params = NetParams.getDeviceParams();
-                    String password = userProfile.getPassword();
-                    if (!TextUtils.isEmpty(password)) {
-                        params.put("username", userProfile.getUsername());
-                        params.put("password", Base64Util.getDecodeStr(password));
-                        new LoginModel(LauncherActivity.this).login(params);
-                    }
+                    HashMap<String, Object> params = new HashMap<>();
+                    params.put("username", userService.getUserInfo().getUsername());
+                    params.put("password", Base64Util.getDecodeStr(userService.getUserInfo().getPassword()));
+                    mPresenter.login(params);
                 } else {
-                    ActivityUtils.startActivity(MainActivity.class);
-                }*/
+                    ARouter.getInstance().build(Router.LOGIN_MOUDLE_ACTIVITY).navigation();
+                }
                 break;
         }
     }
