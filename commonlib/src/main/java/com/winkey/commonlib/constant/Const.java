@@ -55,7 +55,11 @@ public class Const {
         };
     }
 
+    // 页记录数
+    public static final int PAGE_SIZE = 10;
 
+    //
+    public final static String TOKEN = "token";
     // 网络线路下标
     public final static String NET_ROUTE_INDEX = "net_route_index";
     public final static String NET_ROUTE_CUSTOM_ALL = "net_route_custom_all";

@@ -74,6 +74,9 @@ dependencies {
 
     annotationProcessor rootProject.ext.dependencies['butterknifeCompiler']
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
-
+    if (!buildModule.toBoolean()) {
+        api project(':patrolmodule')
+    }
     implementation project(path: ':commonlib')
+    implementation project(path: ':loginmodule')
 }

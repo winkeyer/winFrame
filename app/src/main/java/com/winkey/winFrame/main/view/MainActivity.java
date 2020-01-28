@@ -31,7 +31,7 @@ import butterknife.BindView;
  * @date 2020/1/26
  * @describe TODO
  */
-@Route(path = Router.MAIN_MOUDLE_ACTIVITY)
+@Route(path = Router.MAIN_ACTIVITY)
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @BindView(  R.id.bnv_main)

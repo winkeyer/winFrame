@@ -19,10 +19,19 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+        // ARouter组件初始化
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    // Butterknife requires Java 8.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     resourcePrefix "patrol_"
     buildTypes {
         release {
@@ -56,8 +65,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
-
-    api rootProject.ext.dependencies['butterknife']
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
     annotationProcessor rootProject.ext.dependencies['butterknifeCompiler']
-    implementation project(path: ':winlib')
+    implementation project(path: ':commonlib')
+    implementation project(path: ':loginmodule')
+    implementation 'androidx.cardview:cardview:1.0.0'
 }

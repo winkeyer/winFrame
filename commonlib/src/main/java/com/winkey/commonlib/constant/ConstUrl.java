@@ -14,7 +14,7 @@ public class ConstUrl {
     // ping地址
     public static String PING_DEV = "106.12.46.79";        // 开发环境
     public static String PING_DOMAIN = "139.224.133.163";        // 正式环境
-    private static String HOST = ":8889";
+    public static String HOST = ":8889";
 
 
 
@@ -28,10 +28,10 @@ public class ConstUrl {
     public static final String APP_LOGIN = HOST + "/login";
     // 用户信息
     public static final String USER_INFO = HOST + "/users/current";
-    // 系统参数
     public static final String DICTIONARY_ALL = HOST + "/dicts/all";
     // 用户信息
     public static final String HOME_MENU = HOST + "/permissions/mobile/menu";
+    // 系统参数
 
 
 }

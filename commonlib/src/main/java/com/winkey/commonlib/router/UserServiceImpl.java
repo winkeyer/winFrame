@@ -3,6 +3,7 @@ package com.winkey.commonlib.router;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.blankj.utilcode.util.SPUtils;
 import com.winkey.commonlib.constant.Const;
 import com.winkey.commonlib.db.ProfileManager;
 import com.winkey.commonlib.model.po.SysParamProfile;
@@ -20,6 +21,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserProfile getUserInfo() {
         return ProfileManager.getCurUserProfile();
+    }
+
+    @Override
+    public String getToken() {
+        return SPUtils.getInstance().getString(Const.TOKEN, "");
     }
 
     @Override

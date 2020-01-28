@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="c_translucent_gray">#66000000</color>
-    <color name="c_333333">#333333</color>
-    <color name="c_C3C3D7">#C3C3D7</color>
+    <color name="colorPrimary">#FF9F30</color>
+    <color name="colorPrimaryDark">#FF9F30</color>
+    <color name="colorAccent">#FF9F30</color>
+
+    <color name="colors_A5D63F">#A5D63F</color>
+    <color name="colors_FF5733">#FF5733</color>
+    <color name="colors_00BAAD">#00BAAD</color>
+    <color name="colors_8C7BB1">#8C7BB1</color>
+    <color name="colors_53AFF6">#53AFF6</color>
+    <color name="colors_EF9714">#EF9714</color>
+    <color name="colors_FF9900">#FF9900</color>
+    <color name="colors_5CBF29">#5CBF29</color>
     <color name="colors_EF5B9C">#EF5B9C</color>
+
+    <color name="bg">#F5F8FC</color>
+    <color name="text_gray">#BCBCBC</color>
+    <color name="icon_gray">#999999</color>
+    <color name="gray">#666666</color>
+    <color name="light_black">#555555</color>
+    <color name="bg_line">#FFE3E3E7</color>
+    <color name="c_layout_click">#15000000</color>
+
+    <color name="c_B3B4B3">#B3B4B3</color>
+    <color name="c_333333">#333333</color>
+    <color name="c_666666">#666666</color>
+    <color name="c_E3E3E3">#E3E3E3</color>
+    <color name="c_AAA">#AAA</color>
+    <color name="c_EAEBED">#EAEBED</color>
+    <color name="c_121415">#121415</color>
+    <color name="c_C3C3D7">#C3C3D7</color>
+    <color name="c_33FFFFFF">#33FFFFFF</color>
+    <color name="c_translucent_gray">#66000000</color>
+
+    // 扫码相关
+    <color name="translucent_gray">#22000000</color>
+
 </resources>

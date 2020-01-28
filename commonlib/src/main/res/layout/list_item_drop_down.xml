@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_drop_down_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/dp10"
+        android:paddingLeft="@dimen/dp25"
+        android:paddingRight="@dimen/dp25"
+        android:paddingTop="@dimen/dp10"
+        android:textColor="@color/c_121415"
+        android:textSize="@dimen/sp14" />
+</LinearLayout>

@@ -10,12 +10,14 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.winkey.commonlib.constant.Const;
+import com.winkey.commonlib.constant.Router;
 import com.winkey.loginmodule.BuildConfig;
 import com.winkey.loginmodule.R;
 import com.winkey.loginmodule.R2;
@@ -37,7 +39,7 @@ import butterknife.OnClick;
  * @author xiongz
  * @date 2019-07-18
  */
-@Route(path = "/frame/login")
+@Route(path = Router.LOGIN_ACTIVITY)
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
 
     @BindView(R2.id.tv_route_select)
@@ -52,9 +54,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     //密码是否可见
     private boolean isPwdVisible = false;
 
+    @Autowired
+    String routePath;
+
+
     @Override
     protected Object getContentView() {
-        return R.layout.login_activity_login;
+        return R.layout.login_activity;
     }
 
     @Override
@@ -96,45 +102,44 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void onLoginSuccess() {
-        ARouter.getInstance().build("/frame/main").navigation();
+        if (TextUtils.isEmpty(routePath)) {
+            ARouter.getInstance().build(Router.MAIN_ACTIVITY).navigation();
+        } else {
+            ARouter.getInstance().build(routePath).navigation();
+        }
+
     }
 
     @OnClick({R2.id.btn_login_login, R2.id.tv_login_pwd_switch, R2.id.tv_route_select})
     public void onViewClicked(View view) {
-        switch (view.getId()) {
-            // 线路选择
-            case R.id.tv_route_select:
-                if (OperateUtil.isFastClick()) return;
-                // ActivityUtils.startActivity(SelectNetActivity.class);
-                break;
-            // 登录
-            case R.id.btn_login_login:
-                String userName = etUname.getText().toString().trim();
-                String password = etPwd.getText().toString().trim();
-                if (TextUtils.isEmpty(userName)) {
-                    ToastUtils.showShort("请输入手机号|邮箱|用户名");
-                } else if (TextUtils.isEmpty(password)) {
-                    ToastUtils.showShort("请输入密码");
-                } else {
-                    HashMap<String, Object> params = new HashMap<>();
-                    params.put("username", userName);
-                    params.put("password", password);
-                    mPresenter.login(params);
-                }
-                break;
-            // 密码可见
-            case R.id.tv_login_pwd_switch:
-                if (isPwdVisible) {
-                    tvPwdSwitch.setImageResource(R.mipmap.ic_hidden_psd);
-                    etPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    isPwdVisible = false;
-                } else {
-                    tvPwdSwitch.setImageResource(R.mipmap.ic_show_psd);
-                    etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    isPwdVisible = true;
-                }
-                break;
+        int i = view.getId();
+        if (i == R.id.tv_route_select) {
+            if (OperateUtil.isFastClick()) return;
+        } else if (i == R.id.btn_login_login) {
+            String userName = etUname.getText().toString().trim();
+            String password = etPwd.getText().toString().trim();
+            if (TextUtils.isEmpty(userName)) {
+                ToastUtils.showShort("请输入手机号|邮箱|用户名");
+            } else if (TextUtils.isEmpty(password)) {
+                ToastUtils.showShort("请输入密码");
+            } else {
+                HashMap<String, Object> params = new HashMap<>();
+                params.put("username", userName);
+                params.put("password", password);
+                mPresenter.login(params);
+            }
+        } else if (i == R.id.tv_login_pwd_switch) {
+            if (isPwdVisible) {
+                tvPwdSwitch.setImageResource(R.mipmap.ic_hidden_psd);
+                etPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                isPwdVisible = false;
+            } else {
+                tvPwdSwitch.setImageResource(R.mipmap.ic_show_psd);
+                etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                isPwdVisible = true;
+            }
         }
+
     }
 
     @Override

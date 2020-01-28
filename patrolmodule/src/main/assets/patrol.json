@@ -1,0 +1,22 @@
+[
+  {
+    "dictId": "0",
+    "dictValue": "待认领"
+  },
+  {
+    "dictId": "1",
+    "dictValue": "待指派"
+  },
+  {
+    "dictId": "2",
+    "dictValue": "待接单"
+  },
+  {
+    "dictId": "3",
+    "dictValue": "巡检中"
+  },
+  {
+    "dictId": "4",
+    "dictValue": "完成"
+  }
+]

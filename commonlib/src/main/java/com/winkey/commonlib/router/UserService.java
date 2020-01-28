@@ -15,6 +15,8 @@ public interface UserService extends IProvider {
 
     UserProfile getUserInfo();
 
+    String getToken();
+
     /**
      * 获取原收费模式
      *

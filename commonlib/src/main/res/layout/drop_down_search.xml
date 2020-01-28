@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    <LinearLayout
+        android:id="@+id/ll_simple_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10"
+        android:orientation="horizontal">
+
+        <com.winkey.winlib.ui.view.ClearEditText
+            android:id="@+id/et_search_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_weight="1"
+            android:background="@drawable/bg_shape_gray"
+            android:drawableLeft="@mipmap/ic_search"
+            android:drawablePadding="@dimen/dp5"
+            android:gravity="center_vertical"
+            android:hint="请输入"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:padding="@dimen/dp5"
+            android:singleLine="true"
+            android:textColor="@color/c_333333"
+            android:textSize="@dimen/sp14" />
+
+        <LinearLayout
+            android:id="@+id/view_show_advance"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp30"
+                android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:text="搜索"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp14"
+                android:theme="@style/appThemeButton" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

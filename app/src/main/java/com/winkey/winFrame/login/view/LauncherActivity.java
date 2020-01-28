@@ -15,9 +15,9 @@ import com.winkey.commonlib.constant.Router;
 import com.winkey.commonlib.db.ProfileManager;
 import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.router.UserService;
+import com.winkey.loginmodule.contract.LoginContract;
+import com.winkey.loginmodule.presenter.LoginPresenter;
 import com.winkey.winFrame.R;
-import com.winkey.winFrame.login.contract.LoginContract;
-import com.winkey.winFrame.login.presenter.LoginPresenter;
 import com.winkey.winlib.activity.BaseActivity;
 import com.winkey.winlib.app.AccountManager;
 import com.winkey.winlib.app.IUserChecker;
@@ -31,7 +31,7 @@ import java.util.HashMap;
  * @date 2020/1/9
  * @describe 欢迎页
  */
-@Route(path = Router.LAUNCHER_MOUDLE_ACTIVITY)
+@Route(path = Router.LAUNCHER_ACTIVITY)
 public class LauncherActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
 
     //启动页显示时间默认三秒
@@ -55,8 +55,6 @@ public class LauncherActivity extends BaseActivity<LoginPresenter> implements Lo
         super.onCreate(savedInstanceState);
 
         ActivityUtils.finishOtherActivities(LauncherActivity.class);
-
-        initViews();
     }
 
     @Override
@@ -106,7 +104,7 @@ public class LauncherActivity extends BaseActivity<LoginPresenter> implements Lo
 
     @Override
     public void onLoginSuccess() {
-        ARouter.getInstance().build(Router.MAIN_MOUDLE_ACTIVITY).navigation();
+        ARouter.getInstance().build(Router.MAIN_ACTIVITY).navigation();
     }
 
 
@@ -117,7 +115,7 @@ public class LauncherActivity extends BaseActivity<LoginPresenter> implements Lo
         switch (tag) {
             //登录
             case Launcher.LOGIN:
-                ARouter.getInstance().build(Router.LOGIN_MOUDLE_ACTIVITY).navigation();
+                ARouter.getInstance().build(Router.LOGIN_ACTIVITY).navigation();
                 break;
             //主页面
             case Launcher.MAIN:
@@ -128,7 +126,7 @@ public class LauncherActivity extends BaseActivity<LoginPresenter> implements Lo
                     params.put("password", Base64Util.getDecodeStr(userService.getUserInfo().getPassword()));
                     mPresenter.login(params);
                 } else {
-                    ARouter.getInstance().build(Router.LOGIN_MOUDLE_ACTIVITY).navigation();
+                    ARouter.getInstance().build(Router.LOGIN_ACTIVITY).navigation();
                 }
                 break;
         }

@@ -29,6 +29,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        buildTypes {
+        }
     }
 
 }
@@ -40,6 +42,7 @@ dependencies {
     androidTestImplementation rootProject.ext.dependencies['testRunter']
     androidTestImplementation rootProject.ext.dependencies['espresso']
 
+    api 'androidx.recyclerview:recyclerview:1.1.0'
 
     //EventBus
     api rootProject.ext.dependencies['eventBus']
@@ -52,18 +55,18 @@ dependencies {
     api rootProject.ext.dependencies['immersionbar']
 
     // 网络请求依赖
-    api 'com.squareup.okhttp3:logging-interceptor:3.9.1'
-    api 'com.squareup.retrofit2:retrofit:2.5.0'
-    api 'com.squareup.retrofit2:converter-scalars:2.3.0'
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
-    api 'com.squareup.retrofit2:converter-gson:2.5.0'
+    api 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+    api 'com.squareup.retrofit2:retrofit:2.7.1'
+    api 'com.squareup.retrofit2:converter-scalars:2.7.1'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.7.1'
+    api 'com.squareup.retrofit2:converter-gson:2.7.1'
 
 
     // 数量角标
     api 'q.rorbin:badgeview:1.1.3'
     //rx依赖
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    api 'io.reactivex.rxjava2:rxjava:2.2.6'
+    api 'io.reactivex.rxjava2:rxjava:2.2.17'
 
     // 字体图标
     api('com.joanzapata.iconify:android-iconify-fontawesome:2.2.2') {
@@ -71,7 +74,7 @@ dependencies {
     }
 
     //JSON依赖Android版
-    api 'com.alibaba:fastjson:1.1.71.android'
+    api 'com.alibaba:fastjson:1.2.62'
 
     // 工具包
     api 'com.blankj:utilcode:1.25.4'
@@ -82,12 +85,12 @@ dependencies {
 
 
     //glide图片加载依赖
-    api 'com.github.bumptech.glide:glide:4.6.1'
-    api 'com.github.bumptech.glide:okhttp3-integration:4.6.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    api 'com.github.bumptech.glide:okhttp3-integration:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     // 动画lottie依赖
-    api 'com.airbnb.android:lottie:2.6.0'
+    api 'com.airbnb.android:lottie:3.3.1'
     // 字体图标
     api('com.joanzapata.iconify:android-iconify-fontawesome:2.2.2') {
         exclude group: 'com.android.support'
@@ -98,9 +101,15 @@ dependencies {
     api 'org.greenrobot:greendao:3.2.2'
 
     //原型头像图片依赖
-    api 'de.hdodenhof:circleimageview:2.2.0'
+    api 'de.hdodenhof:circleimageview:3.1.0'
 
     // 圆角
     api 'com.github.open-android:RoundedImageView:v1.0.0'
+
+    //recylerView依赖
+    api('com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.0-beta11') {
+        exclude group: 'com.android.support'
+    }
+
 
 }

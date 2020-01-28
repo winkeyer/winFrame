@@ -4,12 +4,14 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.winkey.commonlib.constant.Const;
+import com.winkey.commonlib.constant.ConstUrl;
 import com.winkey.commonlib.db.ProfileManager;
 import com.winkey.commonlib.db.SysParamManager;
 import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.model.vo.PermissionsEntity;
-import com.winkey.commonlib.constant.ConstUrl;
 import com.winkey.commonlib.net.NetManager;
 import com.winkey.commonlib.net.ObserverProxy;
 import com.winkey.loginmodule.contract.LoginContract;
@@ -18,6 +20,7 @@ import com.winkey.loginmodule.model.vo.UserInfoEntity;
 import com.winkey.winlib.app.AccountManager;
 import com.winkey.winlib.presenter.BasePresenter;
 import com.winkey.winlib.rx.RxNetClient;
+import com.winkey.winlib.ui.loader.XzLoader;
 import com.winkey.winlib.util.FastjsonUtil;
 
 import java.io.IOException;
@@ -118,10 +121,11 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
      */
     private void parseLoginData(String result, HashMap<String, Object> params) {
         LoginEntity loginEntity = FastjsonUtil.parseObject(result, LoginEntity.class);
-        AccountManager.setLoginState(true);
         if (null != loginEntity) {
             userProfile.setToken(loginEntity.getToken());
             String password = (String) params.get("password");
+
+            mView.showLoading();
             requestUserInfo(loginEntity.getToken(), password);
             // 解析本地省市区json数据
             // initRegionData();
@@ -135,6 +139,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
      * 获取用户信息
      */
     public void requestUserInfo(String token, final String password) {
+        SPUtils.getInstance().put(Const.TOKEN, token);
         HashMap<String, Object> headerParams = new HashMap<>();
         headerParams.put("token", token);
         String url = NetManager.getInstance().getUrl(ConstUrl.USER_INFO);
@@ -142,7 +147,6 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
         mView.showLoading();
         RxNetClient.builder()
                 .url(url)
-                .headers(headerParams)
                 .build()
                 .get()
                 .subscribeOn(Schedulers.io())
@@ -164,7 +168,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
 
                     @Override
                     public void onComplete() {
-
+                        mView.hideLoading();
                     }
                 }));
     }
@@ -189,12 +193,15 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                     && !TextUtils.equals(oldUserProfile.getToken(), userProfile.getToken()))) {
                 ProfileManager.insertUserProfile(userProfile, password);
             }
+
+            mView.showLoading();
             // 获取系统参数
             SysParamManager.getInstance().setOnCompleteRequest(new SysParamManager.OnCompleteRequest() {
                 @Override
                 public void onComplete() {
+                    XzLoader.dismissDialog();
+                    AccountManager.setLoginState(true);
                     mView.onLoginSuccess();
-                    mView.hideLoading();
                 }
             }).getSysParams(mContext);
             AccountManager.setLoginState(true);

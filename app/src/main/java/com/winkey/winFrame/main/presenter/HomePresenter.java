@@ -8,7 +8,7 @@ import com.winkey.commonlib.constant.ConstUrl;
 import com.winkey.commonlib.net.NetManager;
 import com.winkey.commonlib.net.NetParams;
 import com.winkey.commonlib.net.ObserverProxy;
-import com.winkey.winFrame.main.contract.MainContract;
+import com.winkey.winFrame.main.contract.HomeContract;
 import com.winkey.winFrame.main.model.vo.HomeMenuEntity;
 import com.winkey.winFrame.main.model.vo.NewsBannerEntity;
 import com.winkey.winlib.presenter.BasePresenter;
@@ -28,7 +28,7 @@ import io.reactivex.schedulers.Schedulers;
  * @date 2020/1/9
  * @describe 首页Presenter类
  */
-public class HomePresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
+public class HomePresenter extends BasePresenter<HomeContract.View> implements HomeContract.Presenter {
 
     // 上下文
     private Context mContext;
@@ -43,7 +43,6 @@ public class HomePresenter extends BasePresenter<MainContract.View> implements M
         String url = NetManager.getInstance().getUrl(ConstUrl.HOME_MENU);
         RxNetClient.builder()
                 .url(url)
-                .headers(NetParams.getHeaderParams())
                 .build()
                 .get()
                 .subscribeOn(Schedulers.io())

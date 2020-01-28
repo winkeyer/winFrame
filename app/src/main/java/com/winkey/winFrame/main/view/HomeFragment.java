@@ -13,13 +13,15 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.winkey.commonlib.constant.GlideOptions;
+import com.winkey.commonlib.constant.Router;
 import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.router.UserService;
 import com.winkey.commonlib.util.PermissionUtil;
 import com.winkey.winFrame.R;
-import com.winkey.winFrame.main.contract.MainContract;
+import com.winkey.winFrame.main.contract.HomeContract;
 import com.winkey.winFrame.main.model.vo.HomeMenuEntity;
 import com.winkey.winFrame.main.model.vo.NewsBannerEntity;
 import com.winkey.winFrame.main.presenter.HomePresenter;
@@ -47,7 +49,7 @@ import q.rorbin.badgeview.QBadgeView;
  * @date 2019/9/5
  * @describe 物业、维保端首页
  */
-public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRefreshLayout.OnRefreshListener , MainContract.View {
+public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRefreshLayout.OnRefreshListener , HomeContract.View {
 
 
     @BindView(R.id.tv_mine_avatar)
@@ -409,9 +411,9 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
             R.id.view_transform, R.id.view_transform_data})
     public void onViewClicked(View view) {
         mRefreshHandler.stopRefresh();
-        /*switch (view.getId()) {
+        switch (view.getId()) {
             case R.id.tv_scan:
-                ActivityUtils.startActivity(TrainScanActivity.class);
+                // ActivityUtils.startActivity(TrainScanActivity.class);
                 break;
             case R.id.view_rescue:
                 if (!PermissionUtil.hasMenu(464)) {
@@ -421,6 +423,8 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
             case R.id.view_patrol:
                 if (!PermissionUtil.hasMenu(465)) {
                     showDialog();
+                }else{
+                    ARouter.getInstance().build(Router.PATROL_ACTIVITY).navigation();
                 }
                 break;
             case R.id.view_train:
@@ -429,7 +433,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
                 }
                 break;
             case R.id.view_plan:
-                UserProfile userProfile = ProfileManager.getCurUserProfile();
+                /*UserProfile userProfile = ProfileManager.getCurUserProfile();
                 String roleCode = userProfile.getRoleCode();
                 if (!PermissionUtil.hasMenu(44)) {
                     showDialog();
@@ -439,13 +443,13 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
                     ActivityUtils.startActivity(PlanGroupActivity.class);
                 } else {
                     ActivityUtils.startActivity(PlanWYManageActivity.class);
-                }
+                }*/
                 break;
             case R.id.view_repair:
                 if (!PermissionUtil.hasMenu(45)) {
                     showDialog();
                 } else {
-                    ActivityUtils.startActivity(OrderManageActivity.class);
+                    // ActivityUtils.startActivity(OrderManageActivity.class);
                 }
 
                 break;
@@ -453,21 +457,21 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
                 if (!PermissionUtil.hasMenu(711)) {
                     showDialog();
                 } else {
-                    ActivityUtils.startActivity(RepairOrderLeaveActivity.class);
+                    // ActivityUtils.startActivity(RepairOrderLeaveActivity.class);
                 }
                 break;
             case R.id.view_malfunction:
                 if (!PermissionUtil.hasMenu(462)) {
                     showDialog();
                 } else {
-                    ActivityUtils.startActivity(MalfunctionManageActivity.class);
+                    // ActivityUtils.startActivity(MalfunctionManageActivity.class);
                 }
                 break;
             case R.id.view_malfunction_leave:
                 if (!PermissionUtil.hasMenu(713)) {
                     showDialog();
                 } else {
-                    ActivityUtils.startActivity(MalfunctionLeaveActivity.class);
+                    // ActivityUtils.startActivity(MalfunctionLeaveActivity.class);
                 }
                 break;
             case R.id.view_malfunction_data:
@@ -479,31 +483,31 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
                 if (!PermissionUtil.hasMenu(463)) {
                     showDialog();
                 } else {
-                    ActivityUtils.startActivity(OverhaulManageActivity.class);
+                    // ActivityUtils.startActivity(OverhaulManageActivity.class);
                 }
                 break;
             case R.id.view_overhaul_data:
                 if (!PermissionUtil.hasMenu(715)) {
                     showDialog();
                 } else {
-                    ActivityUtils.startActivity(OverhaulDataActivity.class);
+                    // ActivityUtils.startActivity(OverhaulDataActivity.class);
                 }
                 break;
             case R.id.view_transform:
                 if (!PermissionUtil.hasMenu(492)) {
                     showDialog();
                 } else {
-                    ActivityUtils.startActivity(TransformManageActivity.class);
+                    // ActivityUtils.startActivity(TransformManageActivity.class);
                 }
                 break;
             case R.id.view_transform_data:
                 if (!PermissionUtil.hasMenu(716)) {
                     showDialog();
                 } else {
-                    ActivityUtils.startActivity(TransformDataActivity.class);
+                    //ActivityUtils.startActivity(TransformDataActivity.class);
                 }
                 break;
-        }*/
+        }
     }
 
 }

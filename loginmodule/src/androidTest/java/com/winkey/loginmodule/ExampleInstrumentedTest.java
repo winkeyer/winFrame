@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.winkey.loginmodule", appContext.getPackageName());
+        assertEquals("com.winkey.loginmodule.test", appContext.getPackageName());
     }
 }
