@@ -92,7 +92,7 @@ public class DropDownMenu extends LinearLayout {
 
         mUpDrawable = new IconDrawable(getContext(), AppIcons.ic_popup_up).colorRes(R.color.colorPrimary).actionBarSize();
         mUpDrawable.setBounds(0, 0 , dpTpPx(7), dpTpPx(7));
-        mDownDrawable = new IconDrawable(getContext(), AppIcons.ic_popup_down).colorRes(R.color.icon_gray).actionBarSize();
+        mDownDrawable = new IconDrawable(getContext(), AppIcons.ic_popup_down).colorRes(R.color.font_hint).actionBarSize();
         mDownDrawable.setBounds(0, 0 , dpTpPx(7), dpTpPx(7));
 
         //初始化tabMenuView并添加到tabMenuView

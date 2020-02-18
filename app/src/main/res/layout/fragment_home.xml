@@ -100,14 +100,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/bg"
+                        android:background="@color/background_primary"
                         android:orientation="horizontal">
 
                         <androidx.viewpager.widget.ViewPager
                             android:id="@+id/banner"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dp180"
-                            android:background="@color/bg"
+                            android:background="@color/background_primary"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -142,7 +142,7 @@
                                     <View
                                         android:layout_width="@dimen/dp3"
                                         android:layout_height="match_parent"
-                                        android:background="@color/colors_FF5733" />
+                                        android:background="@color/red" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -210,7 +210,7 @@
                                     <View
                                         android:layout_width="@dimen/dp3"
                                         android:layout_height="match_parent"
-                                        android:background="@color/colors_53AFF6" />
+                                        android:background="@color/blue" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -321,7 +321,7 @@
                                     <View
                                         android:layout_width="@dimen/dp3"
                                         android:layout_height="match_parent"
-                                        android:background="@color/colors_A5D63F" />
+                                        android:background="@color/green" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -471,7 +471,7 @@
                                     <View
                                         android:layout_width="@dimen/dp3"
                                         android:layout_height="match_parent"
-                                        android:background="@color/colors_00BAAD" />
+                                        android:background="@color/darker_green" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -621,7 +621,7 @@
                                     <View
                                         android:layout_width="@dimen/dp3"
                                         android:layout_height="match_parent"
-                                        android:background="@color/colors_FF9900" />
+                                        android:background="@color/orange" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -743,7 +743,7 @@
                                     <View
                                         android:layout_width="@dimen/dp3"
                                         android:layout_height="match_parent"
-                                        android:background="@color/colors_8C7BB1" />
+                                        android:background="@color/purple" />
 
                                     <TextView
                                         android:layout_width="wrap_content"

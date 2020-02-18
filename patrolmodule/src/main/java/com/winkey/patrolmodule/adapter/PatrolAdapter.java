@@ -39,24 +39,24 @@ public class PatrolAdapter extends BaseQuickAdapter<PatrolEntity, ViewHolder> im
         switch (tempre) {
             case 0:
                 tvStatus.setText("待认领");
-                tvStatus.setTextColor(mContext.getResources().getColor(R.color.colors_53AFF6));
+                tvStatus.setTextColor(mContext.getResources().getColor(R.color.blue));
                 break;
             case 1:
                 tvStatus.setText("待指派");
-                tvStatus.setTextColor(mContext.getResources().getColor(R.color.colors_00BAAD));
+                tvStatus.setTextColor(mContext.getResources().getColor(R.color.darker_green));
                 break;
             case 2:
                 tvStatus.setText("待接单");
-                tvStatus.setTextColor(mContext.getResources().getColor(R.color.colors_FF9900));
+                tvStatus.setTextColor(mContext.getResources().getColor(R.color.orange));
                 break;
             case 3:
                 tvStatus.setText("巡检中");
-                tvStatus.setTextColor(mContext.getResources().getColor(R.color.colors_EF9714));
+                tvStatus.setTextColor(mContext.getResources().getColor(R.color.orange));
                 break;
 
             case 4:
                 tvStatus.setText("完成");
-                tvStatus.setTextColor(mContext.getResources().getColor(R.color.colors_A5D63F));
+                tvStatus.setTextColor(mContext.getResources().getColor(R.color.green));
                 break;
         }
     }

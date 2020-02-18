@@ -17,6 +17,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.winkey.commonlib.constant.GlideOptions;
 import com.winkey.commonlib.constant.Router;
+import com.winkey.commonlib.db.ProfileManager;
 import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.router.UserService;
 import com.winkey.commonlib.util.PermissionUtil;
@@ -209,7 +210,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
         mRefreshHandler = new RefreshHandler(swipe, this, R.color.colorPrimary);
         // mHomeModel = new HomeModel(getContext(), this);
 
-        UserProfile userProfile = userService.getUserInfo();
+        UserProfile userProfile = ProfileManager.getCurUserProfile();
         if (userProfile != null) {
             String avatarUrl = userProfile.getHeadImgUrl();
             GlideUtil.withOption(getProxyActivity(), avatarUrl,

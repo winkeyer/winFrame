@@ -33,13 +33,6 @@ public class ProfileManager {
         dao.insert(userProfile);
     }
 
-    public static void refreshToken(UserProfile userProfile,String pwd){
-        UserProfileDao dao = DbManager.getInstance().getUserProfileDao();
-        dao.detachAll(); // 清除缓存
-        dao.deleteAll();
-        userProfile.setPassword(Base64Util.getEncodeStr(pwd));
-        dao.insert(userProfile);
-    }
 
     /**
      * 获取当前用户信息

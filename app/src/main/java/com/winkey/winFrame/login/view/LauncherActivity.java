@@ -122,8 +122,8 @@ public class LauncherActivity extends BaseActivity<LoginPresenter> implements Lo
                 UserProfile userProfile = ProfileManager.getCurUserProfile();
                 if (userProfile != null) { // 更新token
                     HashMap<String, Object> params = new HashMap<>();
-                    params.put("username", userService.getUserInfo().getUsername());
-                    params.put("password", Base64Util.getDecodeStr(userService.getUserInfo().getPassword()));
+                    params.put("username", ProfileManager.getCurUserProfile().getUsername());
+                    params.put("password", Base64Util.getDecodeStr(ProfileManager.getCurUserProfile().getPassword()));
                     mPresenter.login(params);
                 } else {
                     ARouter.getInstance().build(Router.LOGIN_ACTIVITY).navigation();

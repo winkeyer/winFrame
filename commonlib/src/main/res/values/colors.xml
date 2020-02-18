@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#FF9F30</color>
+    <color name="colorPrimaryDark">#FF9F30</color>
+    <color name="colorAccent">#FF9F30</color>
+
     <!--基础配色-->
     <color name="white">#FFFFFF</color>
     <color name="black">#333333</color>
@@ -8,6 +12,7 @@
     <color name="gold">#FFD700</color>
     <color name="yellow">#FFFF00</color>
     <color name="green">#01CD57</color>
+    <color name="darker_green">#00BAAD</color>
     <color name="lighter_blue">#CBE6F6</color>
     <color name="blue">#E7F4FC</color>
     <color name="purple">#800080</color>
@@ -16,12 +21,6 @@
     <color name="primary">#F5F5F5</color>
     <color name="transparent">#00000000</color>
 
-    <!--主题颜色-->
-    <color name="colorPrimary">#FF9F30</color>
-    <color name="colorPrimaryDark">#FF9F30</color>
-    <color name="colorAccent">#FF9F30</color>
-    <!--标题栏颜色-->
-    <color name="toolbar_primary">@color/colorPrimary</color>
     <!--字体颜色-->
     <color name="font_primary">#333333</color>
     <color name="font_primary_light">#666666</color>
@@ -53,6 +52,7 @@
 
     <!--个人中心-->
     <color name="masking">#44000000</color>
+    <color name="layout_clicking">#15000000</color>
     <!--跟进输入框背景-->
     <color name="mark_bg">#e4e9f4</color>
 

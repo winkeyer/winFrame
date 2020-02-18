@@ -13,6 +13,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.winkey.commonlib.constant.GlideOptions;
+import com.winkey.commonlib.db.ProfileManager;
 import com.winkey.commonlib.icon.AppIcons;
 import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.constant.ConstUrl;
@@ -54,10 +55,10 @@ public class MineFragment extends BaseFragment {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
         Drawable avatarDrawable = new IconDrawable(getProxyActivity(), AppIcons.bg_circle)
-                .colorRes(R.color.colors_EF9714).actionBarSize();
+                .colorRes(R.color.orange).actionBarSize();
         tvAvatar.setBackground(avatarDrawable);
 
-        UserProfile userProfile = userService.getUserInfo();
+        UserProfile userProfile = ProfileManager.getCurUserProfile();
         String name = userProfile.getNickname();
         tvName.setText(name);
 

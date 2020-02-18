@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="@color/background_primary"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="{ic-repair-plan}"
-            android:textColor="@color/colors_A5D63F"
+            android:textColor="@color/green"
             android:textSize="@dimen/sp20" />
 
         <TextView
@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="{ic-banner-click}"
-            android:textColor="@color/icon_gray"
+            android:textColor="@color/font_hint"
             android:textSize="@dimen/sp18" />
     </LinearLayout>
 
@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp2"
             android:text="{ic-pwd}"
-            android:textColor="@color/colors_8C7BB1"
+            android:textColor="@color/purple"
             android:textSize="@dimen/sp22" />
 
         <TextView
@@ -134,7 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="{ic-banner-click}"
-            android:textColor="@color/icon_gray"
+            android:textColor="@color/font_hint"
             android:textSize="@dimen/sp18" />
     </LinearLayout>
 
@@ -154,7 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="{ic-setting}"
-            android:textColor="@color/colors_53AFF6"
+            android:textColor="@color/blue"
             android:textSize="@dimen/sp20" />
 
         <TextView
@@ -170,7 +170,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="{ic-banner-click}"
-            android:textColor="@color/icon_gray"
+            android:textColor="@color/font_hint"
             android:textSize="@dimen/sp18" />
     </LinearLayout>
 
@@ -184,6 +184,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp10"
         android:gravity="center"
-        android:textColor="@color/text_gray"
+        android:textColor="@color/font_hint"
         android:textSize="@dimen/dp12" />
 </LinearLayout>
