@@ -10,9 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.winkey.commonlib.constant.GlideOptions;
+import com.winkey.commonlib.constant.Router;
 import com.winkey.commonlib.icon.AppIcons;
 import com.winkey.commonlib.constant.ConstUrl;
 import com.winkey.commonlib.router.UserService;
@@ -105,6 +107,7 @@ public class MineFragment extends BaseFragment {
             // 系统设置
             case R.id.ll_mine_setting:
                 // ActivityUtils.startActivity(SettingActivity.class);
+                ARouter.getInstance().build(Router.SETTING_ACTIVITY).navigation();
                 break;
         }
     }

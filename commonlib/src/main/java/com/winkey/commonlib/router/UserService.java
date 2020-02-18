@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author winkey
  * @date 2020/1/26
- * @describe TODO
+ * @describe Arouter用户基本信息服务
  */
 public interface UserService extends IProvider {
 

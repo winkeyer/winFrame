@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header" />
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@color/white"
+        android:foreground="@drawable/selector_foreground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp20">
+
+        <TextView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10"
+            android:textColor="@color/font_primary"
+            android:text="法律声明"
+            android:textSize="@dimen/sp14" />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ic-banner-click}"
+            android:textColor="@color/font_hint"
+            android:textSize="@dimen/sp18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:foreground="@drawable/selector_foreground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp20">
+
+        <TextView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10"
+            android:textColor="@color/font_primary"
+            android:text="用户协议"
+            android:textSize="@dimen/sp14" />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ic-banner-click}"
+            android:textColor="@color/font_hint"
+            android:textSize="@dimen/sp18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:foreground="@drawable/selector_foreground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp20">
+
+        <TextView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10"
+            android:text="隐私政策"
+            android:textColor="@color/font_primary"
+            android:textSize="@dimen/sp14" />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ic-banner-click}"
+            android:textColor="@color/font_hint"
+            android:textSize="@dimen/sp18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@color/white"
+        android:foreground="@drawable/selector_foreground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp20">
+
+        <TextView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10"
+            android:textColor="@color/font_primary"
+            android:text="关于我们"
+            android:textSize="@dimen/sp14" />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ic-banner-click}"
+            android:textColor="@color/font_hint"
+            android:textSize="@dimen/sp18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:foreground="@drawable/selector_foreground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp20"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10"
+            android:text="免责声明"
+            android:textColor="@color/font_primary"
+            android:textSize="@dimen/sp14" />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ic-banner-click}"
+            android:textColor="@color/font_hint"
+            android:textSize="@dimen/sp18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_setting_version"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:foreground="@drawable/selector_foreground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10"
+            android:textColor="@color/font_primary"
+            android:text="版本更新"
+            android:textSize="@dimen/sp14" />
+
+        <TextView
+            android:id="@+id/tv_setting_version"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textColor="@color/font_primary"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10"
+            android:textSize="@dimen/sp14" />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ic-banner-click}"
+            android:textColor="@color/font_hint"
+            android:textSize="@dimen/sp18" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_setting_login_out"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_margin="@dimen/dp20"
+        android:gravity="center"
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp14"
+        android:theme="@style/appThemeButton" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp10"
+        android:gravity="center"
+        android:textColor="@color/font_hint"
+        android:textSize="@dimen/dp12" />
+</LinearLayout>

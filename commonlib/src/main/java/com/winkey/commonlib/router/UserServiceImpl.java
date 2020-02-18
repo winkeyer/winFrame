@@ -5,6 +5,7 @@ import android.content.Context;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.SPUtils;
 import com.winkey.commonlib.constant.Const;
+import com.winkey.commonlib.constant.Router;
 import com.winkey.commonlib.db.DbManager;
 import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.model.po.UserProfileDao;
@@ -15,9 +16,9 @@ import java.util.List;
 /**
  * @author winkey
  * @date 2020/1/26
- * @describe TODO
+ * @describe 用户基本信息服务实现类
  */
-@Route(path = "/userService/userInfo")
+@Route(path = Router.USER_INFO)
 public class UserServiceImpl implements UserService {
 
     @Override
