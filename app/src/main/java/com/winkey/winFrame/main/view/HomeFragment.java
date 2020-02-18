@@ -17,7 +17,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.winkey.commonlib.constant.GlideOptions;
 import com.winkey.commonlib.constant.Router;
-import com.winkey.commonlib.db.ProfileManager;
 import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.router.UserService;
 import com.winkey.commonlib.util.PermissionUtil;
@@ -50,7 +49,7 @@ import q.rorbin.badgeview.QBadgeView;
  * @date 2019/9/5
  * @describe 物业、维保端首页
  */
-public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRefreshLayout.OnRefreshListener , HomeContract.View {
+public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRefreshLayout.OnRefreshListener, HomeContract.View {
 
 
     @BindView(R.id.tv_mine_avatar)
@@ -178,7 +177,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
     private RefreshHandler mRefreshHandler;
 
 
-
     // 图片适配器
     private BannerAdapter mBannerAdapter;
     // 卡片tab
@@ -195,7 +193,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
     private Badge transformBradge;
 
 
-
     @Override
     public Object setLayout() {
         return R.layout.fragment_home;
@@ -210,7 +207,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
         mRefreshHandler = new RefreshHandler(swipe, this, R.color.colorPrimary);
         // mHomeModel = new HomeModel(getContext(), this);
 
-        UserProfile userProfile = ProfileManager.getCurUserProfile();
+        UserProfile userProfile = userService.getUserProfile();
         if (userProfile != null) {
             String avatarUrl = userProfile.getHeadImgUrl();
             GlideUtil.withOption(getProxyActivity(), avatarUrl,
@@ -340,9 +337,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
     }
 
 
-
-
-
     /**
      * 开始计时自动滑动卡片
      */
@@ -424,7 +418,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
             case R.id.view_patrol:
                 if (!PermissionUtil.hasMenu(465)) {
                     showDialog();
-                }else{
+                } else {
                     ARouter.getInstance().build(Router.PATROL_ACTIVITY).navigation();
                 }
                 break;

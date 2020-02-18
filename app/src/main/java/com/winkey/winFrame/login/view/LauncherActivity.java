@@ -6,14 +6,11 @@ import android.os.Message;
 
 import androidx.annotation.Nullable;
 
-import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.winkey.commonlib.constant.Launcher;
 import com.winkey.commonlib.constant.Router;
-import com.winkey.commonlib.db.ProfileManager;
-import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.router.UserService;
 import com.winkey.loginmodule.contract.LoginContract;
 import com.winkey.loginmodule.presenter.LoginPresenter;
@@ -40,8 +37,6 @@ public class LauncherActivity extends BaseActivity<LoginPresenter> implements Lo
     //启动时间
     private long mLauncherTime;
 
-    @Autowired(name = "/userService/userInfo")
-    UserService userService;
 
     @Override
     protected Object getContentView() {
@@ -119,11 +114,11 @@ public class LauncherActivity extends BaseActivity<LoginPresenter> implements Lo
                 break;
             //主页面
             case Launcher.MAIN:
-                UserProfile userProfile = ProfileManager.getCurUserProfile();
-                if (userProfile != null) { // 更新token
+                UserService userService = ARouter.getInstance().navigation(UserService.class);
+                if (userService != null) { // 更新token
                     HashMap<String, Object> params = new HashMap<>();
-                    params.put("username", ProfileManager.getCurUserProfile().getUsername());
-                    params.put("password", Base64Util.getDecodeStr(ProfileManager.getCurUserProfile().getPassword()));
+                    params.put("username", userService.getUserProfile().getUsername());
+                    params.put("password", Base64Util.getDecodeStr(userService.getUserProfile().getPassword()));
                     mPresenter.login(params);
                 } else {
                     ARouter.getInstance().build(Router.LOGIN_ACTIVITY).navigation();

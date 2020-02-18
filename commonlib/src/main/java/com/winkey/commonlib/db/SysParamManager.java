@@ -2,6 +2,7 @@ package com.winkey.commonlib.db;
 
 import android.content.Context;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.winkey.commonlib.constant.Const;
 import com.winkey.commonlib.model.po.SysParamProfile;
 import com.winkey.commonlib.model.vo.SysParamEntity;
@@ -9,6 +10,7 @@ import com.winkey.commonlib.constant.ConstUrl;
 import com.winkey.commonlib.net.NetManager;
 import com.winkey.commonlib.net.NetParams;
 import com.winkey.commonlib.net.ObserverProxy;
+import com.winkey.commonlib.router.ParamService;
 import com.winkey.winlib.rx.RxNetClient;
 import com.winkey.winlib.util.FastjsonUtil;
 
@@ -37,6 +39,7 @@ public class SysParamManager {
     private boolean mIsSysParams;
     // 是否获取到所有的数据
     private boolean mIsCompleted;
+    private ParamService paramService;
 
     private static final class Holder {
         private static final SysParamManager INSTANCE = new SysParamManager();
@@ -65,8 +68,8 @@ public class SysParamManager {
         mIsCompleted = false;
 
         // 删除系统参数所有数据
-        ProfileManager.clearSysParamProfile();
-
+        paramService = ARouter.getInstance().navigation(ParamService.class);
+        paramService.clearSysParamProfile();
         // 获取系统参数
         requestSysParams(context);
     }
@@ -151,7 +154,10 @@ public class SysParamManager {
             sysParamProfile.setDictValue(sysParamEntity.getVal());
             sysParamProfile.setDictType(sysParamEntity.getType());
             sysParamProfile.setImageName(sysParamEntity.getImageName());
-            ProfileManager.insertSysParamProfile(sysParamProfile);
+
+            paramService = ARouter.getInstance().navigation(ParamService.class);
+            paramService.clearSysParamProfile();
+            paramService.insertSysParamProfile(sysParamProfile);
         }
         mIsSysParams = true;
         check();

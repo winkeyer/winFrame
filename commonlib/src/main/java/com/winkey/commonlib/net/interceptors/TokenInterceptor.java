@@ -9,7 +9,6 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.winkey.commonlib.constant.Const;
 import com.winkey.commonlib.constant.Router;
 import com.winkey.commonlib.constant.ConstUrl;
-import com.winkey.commonlib.db.ProfileManager;
 import com.winkey.commonlib.model.vo.LoginEntity;
 import com.winkey.commonlib.net.NetManager;
 import com.winkey.commonlib.router.UserService;
@@ -48,8 +47,8 @@ public class TokenInterceptor implements Interceptor {
             if(response.code() == 401){
                 ToastUtils.showLong("重新拉取token");
                 HashMap<String, Object> params = new HashMap<>();
-                params.put("username", ProfileManager.getCurUserProfile().getUsername());
-                params.put("password", Base64Util.getDecodeStr(ProfileManager.getCurUserProfile().getPassword()));
+                params.put("username", userService.getUserProfile().getUsername());
+                params.put("password", Base64Util.getDecodeStr(userService.getUserProfile().getPassword()));
                 String loginUrl = NetManager.getInstance().getUrl(ConstUrl.APP_LOGIN);
                 // 此处如果发现401 token过期，需要使用同步方法，防止异步到来token失效的问题
                 String result = RxNetClient.builder()

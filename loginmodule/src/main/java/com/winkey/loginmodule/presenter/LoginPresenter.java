@@ -3,17 +3,19 @@ package com.winkey.loginmodule.presenter;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.alibaba.fastjson.JSONObject;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.winkey.commonlib.constant.Const;
 import com.winkey.commonlib.constant.ConstUrl;
-import com.winkey.commonlib.db.ProfileManager;
 import com.winkey.commonlib.db.SysParamManager;
 import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.model.vo.PermissionsEntity;
 import com.winkey.commonlib.net.NetManager;
 import com.winkey.commonlib.net.ObserverProxy;
+import com.winkey.commonlib.router.UserService;
 import com.winkey.loginmodule.contract.LoginContract;
 import com.winkey.loginmodule.model.vo.LoginEntity;
 import com.winkey.loginmodule.model.vo.UserInfoEntity;
@@ -45,9 +47,13 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
     // 上下文
     private Context mContext;
 
+    @Autowired
+    UserService userService;
+
     // 用户信息
     private UserProfile userProfile = new UserProfile();
     public LoginPresenter(Context context){
+        ARouter.getInstance().inject(this);
         this.mContext = context;
     }
     @Override
@@ -188,10 +194,10 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
             userProfile.setPermissions((List<PermissionsEntity>) userInfoEntity.getPermissions());
 
             // 用户信息变化则存入数据库
-            UserProfile oldUserProfile = ProfileManager.getCurUserProfile();
+            UserProfile oldUserProfile = userService.getUserProfile();
             if (oldUserProfile == null || (oldUserProfile.getToken() != null
                     && !TextUtils.equals(oldUserProfile.getToken(), userProfile.getToken()))) {
-                ProfileManager.insertUserProfile(userProfile, password);
+                userService.insertUserProfile(userProfile, password);
             }
 
             mView.showLoading();

@@ -1,8 +1,9 @@
 package com.winkey.commonlib.util;
 
-import com.winkey.commonlib.db.ProfileManager;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.model.vo.PermissionsEntity;
+import com.winkey.commonlib.router.UserService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,8 +22,8 @@ public class PermissionUtil {
      * @return
      */
     public static boolean hasPermission(String permission) {
-        UserProfile userProfile = ProfileManager.getCurUserProfile();
-        List<PermissionsEntity> permissions = userProfile.getPermissions();
+        UserService userService = ARouter.getInstance().navigation(UserService.class);
+        List<PermissionsEntity> permissions = userService.getUserProfile().getPermissions();
         boolean hasPermission = false;
         for (PermissionsEntity permissionsEntity : permissions) {
             if (permissionsEntity.getPermission() != null && permissionsEntity.getPermission().equals(permission)) {
@@ -37,8 +38,8 @@ public class PermissionUtil {
      * @return
      */
     public static boolean hasMenu(int id) {
-        UserProfile userProfile = ProfileManager.getCurUserProfile();
-        List<PermissionsEntity> permissions = userProfile.getPermissions();
+        UserService userService = ARouter.getInstance().navigation(UserService.class);
+        List<PermissionsEntity> permissions = userService.getUserProfile().getPermissions();
         boolean hasMenu = false;
         for (PermissionsEntity permissionsEntity : permissions) {
             if (permissionsEntity.getPermission() != null && permissionsEntity.getId()==id) {

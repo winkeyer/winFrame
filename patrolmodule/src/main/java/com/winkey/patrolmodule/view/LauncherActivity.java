@@ -12,8 +12,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.winkey.commonlib.constant.Launcher;
 import com.winkey.commonlib.constant.Router;
-import com.winkey.commonlib.db.ProfileManager;
-import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.router.UserService;
 import com.winkey.loginmodule.contract.LoginContract;
 import com.winkey.loginmodule.presenter.LoginPresenter;
@@ -21,9 +19,6 @@ import com.winkey.patrolmodule.R;
 import com.winkey.winlib.activity.BaseActivity;
 import com.winkey.winlib.app.AccountManager;
 import com.winkey.winlib.app.IUserChecker;
-import com.winkey.winlib.util.Base64Util;
-
-import java.util.HashMap;
 
 
 /**

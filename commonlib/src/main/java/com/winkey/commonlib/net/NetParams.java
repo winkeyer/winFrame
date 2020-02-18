@@ -4,8 +4,6 @@ import android.text.TextUtils;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.winkey.commonlib.constant.Const;
-import com.winkey.commonlib.db.ProfileManager;
-import com.winkey.commonlib.model.po.UserProfile;
 import com.winkey.commonlib.router.UserService;
 
 import java.util.HashMap;
@@ -24,7 +22,6 @@ public class NetParams {
      */
     public static HashMap<String, Object> getPostHeaderParams() {
         HashMap<String, Object> params = new HashMap<>();
-        // UserProfile userProfile = ProfileManager.getCurUserProfile();
 
         UserService userService = ARouter.getInstance().navigation(UserService.class);
         String token = userService.getToken();
