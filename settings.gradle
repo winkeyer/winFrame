@@ -1,1 +1,1 @@
-include ':app', ':winlib', ':patrolmodule', ':commonlib', ':loginmodule'
+include ':app', ':winlib', ':patrolmodule', ':commonlib', ':loginmodule', ':projectmodule'

@@ -1,23 +1,18 @@
 package com.winkey.patrolmodule.presenter;
 
 import android.content.Context;
-import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.winkey.commonlib.constant.ConstUrl;
 import com.winkey.commonlib.model.vo.PagesEntity;
-import com.winkey.commonlib.model.vo.SubmitEntity;
 import com.winkey.commonlib.net.NetManager;
-import com.winkey.commonlib.net.NetParams;
 import com.winkey.commonlib.net.ObserverProxy;
-import com.winkey.patrolmodule.constant.Url;
 import com.winkey.patrolmodule.contract.PatrolContract;
 import com.winkey.patrolmodule.model.vo.PatrolEntity;
 import com.winkey.winlib.presenter.BasePresenter;
 import com.winkey.winlib.rx.RxNetClient;
 import com.winkey.winlib.util.FastjsonUtil;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -42,7 +37,7 @@ public class PatrolPresenter extends BasePresenter<PatrolContract.View> implemen
 
     @Override
     public void requestPatrol(HashMap<String, Object> params) {
-        String url = NetManager.getInstance().getUrl(Url.PATROL_LIST);
+        String url = NetManager.getInstance().getUrl(ConstUrl.PATROL_LIST);
         String body = FastjsonUtil.toJSONString(params);
         mView.showLoading();
         RxNetClient.builder()

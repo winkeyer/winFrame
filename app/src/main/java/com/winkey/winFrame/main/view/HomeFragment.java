@@ -401,12 +401,15 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements SwipeRe
         dialog.show();
     }
 
-    @OnClick({R.id.tv_scan, R.id.view_rescue, R.id.view_patrol, R.id.view_train, R.id.view_plan, R.id.view_repair, R.id.view_repair_leave,
+    @OnClick({R.id.view_project,R.id.tv_scan, R.id.view_rescue, R.id.view_patrol, R.id.view_train, R.id.view_plan, R.id.view_repair, R.id.view_repair_leave,
             R.id.view_malfunction, R.id.view_malfunction_leave, R.id.view_malfunction_data, R.id.view_overhaul, R.id.view_overhaul_data,
             R.id.view_transform, R.id.view_transform_data})
     public void onViewClicked(View view) {
         mRefreshHandler.stopRefresh();
         switch (view.getId()) {
+            case R.id.view_project:
+                ARouter.getInstance().build(Router.PROJECT_ACTIVITY).navigation();
+                break;
             case R.id.tv_scan:
                 // ActivityUtils.startActivity(TrainScanActivity.class);
                 break;

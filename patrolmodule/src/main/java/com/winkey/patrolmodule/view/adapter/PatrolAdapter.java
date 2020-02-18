@@ -1,4 +1,4 @@
-package com.winkey.patrolmodule.adapter;
+package com.winkey.patrolmodule.view.adapter;
 
 import android.content.Context;
 import android.widget.TextView;
@@ -19,12 +19,10 @@ import java.util.List;
 public class PatrolAdapter extends BaseQuickAdapter<PatrolEntity, ViewHolder> implements LoadMoreModule {
 
     private Context mContext;
-    private List<PatrolEntity> mData;
 
     public PatrolAdapter(Context context, int layoutResId, List<PatrolEntity> datas) {
         super(layoutResId, datas);
         mContext = context;
-        mData = datas;
     }
 
     @Override

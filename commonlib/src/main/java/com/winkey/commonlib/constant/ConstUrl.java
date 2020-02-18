@@ -28,10 +28,14 @@ public class ConstUrl {
     public static final String APP_LOGIN = HOST + "/login";
     // 用户信息
     public static final String USER_INFO = HOST + "/users/current";
-    public static final String DICTIONARY_ALL = HOST + "/dicts/all";
     // 用户信息
     public static final String HOME_MENU = HOST + "/permissions/mobile/menu";
     // 系统参数
+    public static final String DICTIONARY_ALL = HOST + "/dicts/all";
+
+
+    // 巡检列表
+    public static final String PATROL_LIST = ConstUrl.HOST + "/patrol/planList";
 
 
 }

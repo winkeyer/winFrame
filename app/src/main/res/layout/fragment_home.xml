@@ -112,7 +112,6 @@
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -292,6 +291,155 @@
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:layout_weight="3"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="5dp"
+                            app:cardUseCompatPadding="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/dp10">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <View
+                                        android:layout_width="@dimen/dp3"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/pink" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dp5"
+                                        android:text="基本信息"
+                                        android:textColor="@color/font_primary"
+                                        android:textSize="@dimen/sp14" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:id="@+id/view_project"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical"
+                                        android:paddingTop="@dimen/dp15">
+
+                                        <LinearLayout
+                                            android:id="@+id/view_project_badge"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="@dimen/dp10">
+
+                                            <ImageView
+                                                android:id="@+id/iv_project"
+                                                android:layout_width="@dimen/dp45"
+                                                android:layout_height="@dimen/dp45"
+                                                android:src="@mipmap/ic_report1" />
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="项目管理"
+                                            android:textColor="@color/font_primary"
+                                            android:textSize="@dimen/sp12" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/view_workOrder"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical"
+                                        android:paddingTop="@dimen/dp15">
+
+                                        <LinearLayout
+                                            android:id="@+id/view_workOrder_badge"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="@dimen/dp10">
+
+                                            <ImageView
+                                                android:id="@+id/iv_workOrder"
+                                                android:layout_width="@dimen/dp45"
+                                                android:layout_height="@dimen/dp45"
+                                                android:src="@mipmap/ic_report2" />
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="待办事项"
+                                            android:textColor="@color/font_primary"
+                                            android:textSize="@dimen/sp12" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/view_lift_data"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical"
+                                        android:paddingTop="@dimen/dp15">
+
+                                        <LinearLayout
+                                            android:id="@+id/view_lift_data_badge"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="@dimen/dp10">
+
+                                            <ImageView
+                                                android:id="@+id/iv_lift_data"
+                                                android:layout_width="@dimen/dp45"
+                                                android:layout_height="@dimen/dp45"
+                                                android:src="@mipmap/ic_report3" />
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="一梯一档"
+                                            android:textColor="@color/font_primary"
+                                            android:textSize="@dimen/sp12" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical"
+                                        android:paddingTop="@dimen/dp15"
+                                        android:visibility="invisible" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

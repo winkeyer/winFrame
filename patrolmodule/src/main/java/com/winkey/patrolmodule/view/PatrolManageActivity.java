@@ -1,7 +1,6 @@
 package com.winkey.patrolmodule.view;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -16,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.fastjson.JSONArray;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.listener.OnLoadMoreListener;
@@ -28,10 +26,10 @@ import com.winkey.commonlib.view.DropDownMenu.DropDownMenu;
 import com.winkey.commonlib.view.DropDownMenu.ListDropDownAdapter;
 import com.winkey.patrolmodule.R;
 import com.winkey.patrolmodule.R2;
-import com.winkey.patrolmodule.adapter.PatrolAdapter;
 import com.winkey.patrolmodule.contract.PatrolContract;
 import com.winkey.patrolmodule.model.vo.PatrolEntity;
 import com.winkey.patrolmodule.presenter.PatrolPresenter;
+import com.winkey.patrolmodule.view.adapter.PatrolAdapter;
 import com.winkey.winlib.activity.BaseActivity;
 import com.winkey.winlib.rx.Xz;
 import com.winkey.winlib.ui.recycler.WrapContentLinearLayoutManager;

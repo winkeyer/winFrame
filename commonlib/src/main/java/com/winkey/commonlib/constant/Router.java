@@ -24,4 +24,8 @@ public class Router {
     // 巡检模组
     public static final String PATROL_MODULE_NAME = "/patrolModule/";
     public static final String PATROL_ACTIVITY = PATROL_MODULE_NAME + "manage";
+
+    // 项目模组
+    public static final String PROJECT_MODULE_NAME = "/projectModule/";
+    public static final String PROJECT_ACTIVITY = PROJECT_MODULE_NAME + "manage";
 }
