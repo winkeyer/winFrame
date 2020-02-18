@@ -25,7 +25,7 @@
             android:inputType="text"
             android:padding="@dimen/dp5"
             android:singleLine="true"
-            android:textColor="@color/c_333333"
+            android:textColor="@color/font_primary"
             android:textSize="@dimen/sp14" />
 
         <LinearLayout

@@ -161,7 +161,7 @@
                     android:id="@+id/view_go_detail"
                     android:layout_width="45dp"
                     android:layout_height="25dp"
-                    android:background="@drawable/bg_red_stroke"
+                    android:background="@drawable/bg_stroke_primary"
                     android:gravity="center">
 
                     <TextView

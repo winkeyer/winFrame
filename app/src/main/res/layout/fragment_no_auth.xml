@@ -24,6 +24,6 @@
         android:layout_alignBottom="@id/lottie_empty"
         android:layout_centerInParent="true"
         android:text="暂未开放报表!"
-        android:textColor="@color/c_C3C3D7" />
+        android:textColor="@color/font_hint_light" />
 
 </RelativeLayout>

@@ -12,14 +12,14 @@
         android:id="@+id/dropDownMenu_select_inspection"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:ddmaskColor="@color/c_translucent_gray"
+        app:ddmaskColor="@color/masking"
         app:ddmenuBackgroundColor="@color/white"
         app:ddmenuMenuHeightPercent="0.7"
         app:ddmenuSelectedIcon="@mipmap/drop_down_selected_icon"
         app:ddmenuTextSize="@dimen/sp13"
         app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"
         app:ddtextSelectedColor="@color/colorPrimary"
-        app:ddtextUnselectedColor="@color/c_121415"
-        app:ddunderlineColor="@color/bg_line" />
+        app:ddtextUnselectedColor="@color/font_primary"
+        app:ddunderlineColor="@color/divider_light" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

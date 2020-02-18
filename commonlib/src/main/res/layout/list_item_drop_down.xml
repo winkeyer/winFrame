@@ -13,6 +13,6 @@
         android:paddingLeft="@dimen/dp25"
         android:paddingRight="@dimen/dp25"
         android:paddingTop="@dimen/dp10"
-        android:textColor="@color/c_121415"
+        android:textColor="@color/font_primary"
         android:textSize="@dimen/sp14" />
 </LinearLayout>

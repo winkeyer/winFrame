@@ -149,7 +149,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp5"
                                         android:text="紧急任务"
-                                        android:textColor="@color/c_333333"
+                                        android:textColor="@color/font_primary"
                                         android:textSize="@dimen/sp14" />
                                 </LinearLayout>
 
@@ -179,7 +179,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="应急救援"
-                                        android:textColor="@color/c_333333"
+                                        android:textColor="@color/font_primary"
                                         android:textSize="@dimen/sp12" />
                                 </LinearLayout>
 
@@ -217,7 +217,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp5"
                                         android:text="团队配合"
-                                        android:textColor="@color/c_333333"
+                                        android:textColor="@color/font_primary"
                                         android:textSize="@dimen/sp14" />
                                 </LinearLayout>
 
@@ -252,7 +252,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="巡检"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -282,7 +282,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="培训"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
                                 </LinearLayout>
@@ -328,7 +328,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp5"
                                         android:text="日常维保"
-                                        android:textColor="@color/c_333333"
+                                        android:textColor="@color/font_primary"
                                         android:textSize="@dimen/sp14" />
                                 </LinearLayout>
 
@@ -363,7 +363,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="维保计划"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -393,7 +393,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="维保订单"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -423,7 +423,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="委托单"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -478,7 +478,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp5"
                                         android:text="故障维修"
-                                        android:textColor="@color/c_333333"
+                                        android:textColor="@color/font_primary"
                                         android:textSize="@dimen/sp14" />
                                 </LinearLayout>
 
@@ -513,7 +513,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="故障单"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -543,7 +543,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="委托单"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -573,7 +573,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="数据工单"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -628,7 +628,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp5"
                                         android:text="大修计划"
-                                        android:textColor="@color/c_333333"
+                                        android:textColor="@color/font_primary"
                                         android:textSize="@dimen/sp14" />
                                 </LinearLayout>
 
@@ -663,7 +663,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="大修执行"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -693,7 +693,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="工单查询"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -750,7 +750,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp5"
                                         android:text="改造计划"
-                                        android:textColor="@color/c_333333"
+                                        android:textColor="@color/font_primary"
                                         android:textSize="@dimen/sp14" />
                                 </LinearLayout>
 
@@ -785,7 +785,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="改造执行"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -815,7 +815,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="工单查询"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -864,14 +864,14 @@
                                     <View
                                         android:layout_width="@dimen/dp3"
                                         android:layout_height="match_parent"
-                                        android:background="@color/colors_EF5B9C" />
+                                        android:background="@color/pink" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp5"
                                         android:text="报表数据"
-                                        android:textColor="@color/c_333333"
+                                        android:textColor="@color/font_primary"
                                         android:textSize="@dimen/sp14" />
                                 </LinearLayout>
 
@@ -906,7 +906,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="报表数据1"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -936,7 +936,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="报表数据2"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -966,7 +966,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="报表数据3"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
 
@@ -996,7 +996,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="报表数据4"
-                                            android:textColor="@color/c_333333"
+                                            android:textColor="@color/font_primary"
                                             android:textSize="@dimen/sp12" />
                                     </LinearLayout>
                                 </LinearLayout>

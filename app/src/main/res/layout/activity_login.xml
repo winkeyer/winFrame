@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/dp60"
-            android:background="@drawable/bg_login_input"
+            android:background="@drawable/bg_solid_white"
             android:orientation="vertical">
 
             <com.winkey.winlib.ui.view.ClearEditText
@@ -71,7 +71,7 @@
                     android:id="@+id/cet_login_password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_login_password"
+                    android:background="@drawable/bg_solid_white"
                     android:gravity="left|center_vertical"
                     android:hint="请输入密码"
                     android:inputType="textPassword"
@@ -103,7 +103,7 @@
                 android:layout_marginTop="@dimen/dp30"
                 android:layout_marginRight="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp20"
-                android:background="@drawable/bg_login_button"
+                android:background="@drawable/bg_solid_primary"
                 android:gravity="center"
                 android:text="登        录"
                 android:textColor="@color/white"
