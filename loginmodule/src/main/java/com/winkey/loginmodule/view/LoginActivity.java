@@ -24,7 +24,7 @@ import com.winkey.loginmodule.R2;
 import com.winkey.loginmodule.contract.LoginContract;
 import com.winkey.loginmodule.presenter.LoginPresenter;
 import com.winkey.winlib.activity.BaseActivity;
-import com.winkey.winlib.ui.view.ClearEditText;
+import com.winkey.commonlib.view.ClearEditText;
 import com.winkey.winlib.util.OperateUtil;
 
 import java.util.HashMap;

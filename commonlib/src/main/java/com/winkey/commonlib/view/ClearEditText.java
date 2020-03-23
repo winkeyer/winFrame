@@ -1,4 +1,4 @@
-package com.winkey.winlib.ui.view;
+package com.winkey.commonlib.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

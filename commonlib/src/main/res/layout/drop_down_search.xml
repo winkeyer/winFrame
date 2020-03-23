@@ -10,7 +10,7 @@
         android:layout_margin="@dimen/dp10"
         android:orientation="horizontal">
 
-        <com.winkey.winlib.ui.view.ClearEditText
+        <com.winkey.commonlib.view.ClearEditText
             android:id="@+id/et_search_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"

@@ -20,7 +20,6 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.listener.OnLoadMoreListener;
 import com.winkey.commonlib.constant.Router;
 import com.winkey.commonlib.model.po.SysParamProfile;
-import com.winkey.commonlib.model.vo.PagesEntity;
 import com.winkey.commonlib.net.NetParams;
 import com.winkey.commonlib.view.DropDownMenu.DropDownMenu;
 import com.winkey.commonlib.view.DropDownMenu.ListDropDownAdapter;
@@ -34,9 +33,8 @@ import com.winkey.winlib.activity.BaseActivity;
 import com.winkey.winlib.rx.Xz;
 import com.winkey.winlib.ui.recycler.WrapContentLinearLayoutManager;
 import com.winkey.winlib.ui.refresh.RefreshHandler;
-import com.winkey.winlib.ui.view.ClearEditText;
+import com.winkey.commonlib.view.ClearEditText;
 import com.winkey.winlib.util.FastjsonUtil;
-import com.winkey.winlib.util.OperateUtil;
 import com.winkey.winlib.util.StringUtil;
 
 import java.util.ArrayList;
